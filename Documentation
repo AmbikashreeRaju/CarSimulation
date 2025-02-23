@@ -1,0 +1,70 @@
+Project Documentation: Auto Driving Car Simulation
+
+Project Overview
+The Auto Driving Car Simulation is a console-based simulation program where users can create a virtual field, add cars with specific positions and directions, assign movement commands, and simulate their movements. The simulation includes features like boundary checks, collision detection, and step-by-step execution of car commands.
+
+The simulation program is designed to work with a rectangular field, and multiple cars can be added. Each car can execute a series of commands that include turning left (L), turning right (R), and moving forward (F). Collisions are detected if cars overlap during their movement, and the simulation stops when a collision occurs.
+
+Class Overview
+Field Class
+
+Represents the simulation field with a specific width and height.
+Stores a list of cars currently on the field.
+Contains methods for checking if a car is out of bounds (IsOutOfBounds()) and detecting collisions between cars (CheckCollision()).
+
+Car Class
+
+Represents a car in the simulation with a unique name, position (X, Y), direction (N, S, E, W), and a series of movement commands.
+Contains methods to execute commands: turn left (TurnLeft()), turn right (TurnRight()), and move forward (MoveForward()).
+Ensures that the car doesn't move out of bounds by tracking its current position and updating only if the movement is valid.
+Tracks collision status with a Collided flag.
+
+Simulation Class
+
+Manages the simulation process by processing each car's commands step by step.
+Handles the movement of cars and checks for out-of-bounds conditions and collisions after each command.
+Stops the simulation when a collision occurs or when all commands for the cars have been processed.
+Prints the final result of the simulation, indicating positions or collision outcomes.
+
+Program Class (Main)
+
+The entry point of the program that runs the user interface.
+Prompts the user to input the field dimensions (width and height).
+Allows users to interact with the system by adding cars, assigning commands, and running the simulation.
+Handles user choices to either add a new car, run the simulation, or restart/exit after completing a simulation.
+Key Features and Workflow
+
+Create Simulation Field
+
+Upon starting the program, the user is prompted to input the dimensions of the field (width height). For example, 10 10 would create a 10x10 grid.
+The system creates a field of the specified size.
+
+Add Cars to Field
+
+The user can add one or more cars to the field. For each car, the following is requested:
+Car name (e.g., A or B).
+Initial position (in x y format).
+Direction the car is facing (North, South, East, or West).
+A series of commands (string of L, R, and F).
+The car’s details are stored, and the user is shown the current list of cars.
+
+Simulation Process
+
+After adding cars, the user can choose to run the simulation. The system processes each car’s commands step by step, one command at a time for all cars:
+Each step moves the cars according to their assigned commands, and after each step, the program checks for collisions.
+If a car tries to move beyond the field's boundary, its movement is canceled for that step.
+The program continues until all commands are processed, a car collides, or the simulation is manually stopped.
+
+Collision Detection
+
+If any two cars occupy the same position at the same time, a collision is detected.
+If a collision occurs, the simulation stops, and the result is shown, including which cars collided and the position and step at which the collision occurred.
+
+Results Display
+
+Once the simulation ends, the program outputs the results:
+If no collision occurred, it displays the final positions and directions of all cars.
+If a collision occurred, the program shows the collision details, including the cars involved, their position, and the step when the collision happened.
+Restart or Exit
+
+After the simulation is complete, the user can choose to restart the process or exit the program.
